@@ -1,8 +1,14 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { ApiRx, WsProvider } from "@polkadot/api";
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  useEffect(() => {
+    ApiRx.create({
+      provider: new WsProvider("ws://localhost:9944"),
+    });
+  }, []);
   return (
     <div className="App">
       <header className="App-header">
